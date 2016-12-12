@@ -40,3 +40,16 @@ Alternately, you can create different external tool entries for different comman
 |     Program | /bin/bash      |
 |  Parameters | /path/to/goguru.sh describe $FileName$ $SelectionStartLine$ $SelectionStartColumn$ $SelectionEndLine$ $SelectionEndColumn$ |
 | Working Dir | $FileDir$      |
+
+#### Invoke any Guru command with -scope ####
+
+Some Guru commands need the -scope parameter. Unfortunately there's no way to specify multiple input prompts in the IDEA macro system. So we have to use something else.
+
+|         Key | Value                             |
+|------------:|:----------------------------------|
+|        Name | Guru ??? with scope in clipboard  |
+|     Program | /bin/bash                         |
+|  Parameters | /path/to/goguruwithopts.sh $Prompt$ $FileName$ $SelectionStartLine$ $SelectionStartColumn$ $SelectionEndLine$ $SelectionEndColumn$ -scope $ClipboardContent$ |
+| Working Dir | $FileDir$                         |
+
+The configuration above will prompt you for a guru command, and then it will use the contents in the clipboard as the -scope variable.
